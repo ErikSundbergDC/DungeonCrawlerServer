@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace DungeonCrawler
 {
-    public class PlayerCharacter
+    public class PlayerCharacter : BaseCharacter
     {
-        public Room Position { get; set; }
-
+        
         public void SendMessage(string message)
         {
             Console.WriteLine(message);
