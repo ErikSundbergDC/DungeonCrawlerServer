@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonCrawler
 {
-    public class BaseCharacter
+    public abstract class BaseCharacter
     {
         public Room Position { get; set; }
 
