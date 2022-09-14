@@ -8,13 +8,14 @@ internal class Program
 
         PlayerCharacter playerCharacter = new PlayerCharacter("Erik");
         playerCharacter.Position = startingRoom;
+        playerCharacter.HealthPoints = 100;
 
         playerCharacter.Position.DisplayRoom(playerCharacter);
 
-        //TODO: Någon form av avslut borde finnas på spelet så att vi slipper den oändliga loopen!
-        while (true)
+        bool stop = false;
+        while (!stop)
         {
-            playerCharacter.PerformCommand();
+            stop = playerCharacter.PerformCommand();
         }
         
     }
@@ -79,6 +80,7 @@ internal class Program
         room18.ExitSouth = room16;
 
         NonPlayerCharacter npc1 = new NonPlayerCharacter("Zombien Bob");
+        npc1.HealthPoints = 25;
 
         room5.Characters.Add(npc1);
 

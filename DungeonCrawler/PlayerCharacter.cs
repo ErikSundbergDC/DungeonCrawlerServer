@@ -19,13 +19,14 @@ namespace DungeonCrawler
 
 
         //TODO: Denna metod är för lång och rörig. Ska lösas på något annat sätt.
-        public void PerformCommand()
+        public bool PerformCommand()
         {
+            bool stop = false;
             Console.Write("Do something: ");
-            string commandString = Console.ReadLine().ToLower();
-
-            //TODO: Inget kommando alls tolkas som "north".
-            if ("north".StartsWith(commandString))
+            string[] commandString = Console.ReadLine().ToLower().Split(' ');
+            
+           
+            if ("north".StartsWith(commandString[0]))
             {
                 if (Position.ExitNorth != null)
                 {
@@ -37,7 +38,7 @@ namespace DungeonCrawler
                     SendMessage("You can't go that way!");
                 }
             }
-            else if ("east".StartsWith(commandString))
+            else if ("east".StartsWith(commandString[0]))
             {
                 if (Position.ExitEast != null)
                 {
@@ -49,7 +50,7 @@ namespace DungeonCrawler
                     SendMessage("You can't go that way!");
                 }
             }
-            else if ("south".StartsWith(commandString))
+            else if ("south".StartsWith(commandString[0]))
             {
                 if (Position.ExitSouth != null)
                 {
@@ -61,7 +62,7 @@ namespace DungeonCrawler
                     SendMessage("You can't go that way!");
                 }
             }
-            else if ("west".StartsWith(commandString))
+            else if ("west".StartsWith(commandString[0]))
             {
                 if (Position.ExitWest != null)
                 {
@@ -73,12 +74,43 @@ namespace DungeonCrawler
                     SendMessage("You can't go that way!");
                 }
             }
+            else if ("quit".StartsWith(commandString[0]))
+            {
+                stop = true;
+                SendMessage("Hejdå!");
+            }
+            else if ("attack".StartsWith(commandString[0]))
+            {
+                if(commandString.Length > 1)
+                {
+                    for (int i = 0; i < Position.Characters.Count; i++)
+                    {
+                        if (Position.Characters[i].Name.ToLower().StartsWith(commandString[1]))
+                        {
+                            stop = Fight(Position.Characters[i]);
+
+                        }
+                    }
+                    
+                }
+                else
+                {
+                    SendMessage("Who do you want to attack?");
+                }
+            }
             else
             {
                 SendMessage("Unknown command.");
             }
 
 
+            return stop;
+        }
+
+        private bool Fight(BaseCharacter enemy)
+        {
+            SendMessage("Fight started!");
+            return false;
         }
     }
 }
