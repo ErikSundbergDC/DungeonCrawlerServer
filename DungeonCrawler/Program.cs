@@ -6,7 +6,7 @@ internal class Program
     {
         Room startingRoom = CreateWorld();
 
-        PlayerCharacter playerCharacter = new PlayerCharacter();
+        PlayerCharacter playerCharacter = new PlayerCharacter("Erik");
         playerCharacter.Position = startingRoom;
 
         playerCharacter.Position.DisplayRoom(playerCharacter);
@@ -77,7 +77,10 @@ internal class Program
         room16.ExitEast = room15;
         room17.ExitSouth = room15;
         room18.ExitSouth = room16;
-        
+
+        NonPlayerCharacter npc1 = new NonPlayerCharacter("Zombien Bob");
+
+        room5.Characters.Add(npc1);
 
         return room1;
     }

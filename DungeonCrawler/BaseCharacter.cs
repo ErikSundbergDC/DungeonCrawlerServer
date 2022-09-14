@@ -10,5 +10,13 @@ namespace DungeonCrawler
     {
         public Room Position { get; set; }
 
+        public string Name { get; set; }
+
+        public int HealthPoints { get; set; }
+
+        public BaseCharacter(string name)
+        {
+            Name = name;
+        }
     }
 }

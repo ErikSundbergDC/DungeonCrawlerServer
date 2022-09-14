@@ -8,7 +8,10 @@ namespace DungeonCrawler
 {
     public class PlayerCharacter : BaseCharacter
     {
-        
+        public PlayerCharacter(string name) : base(name)
+        {
+        }
+
         public void SendMessage(string message)
         {
             Console.WriteLine(message);

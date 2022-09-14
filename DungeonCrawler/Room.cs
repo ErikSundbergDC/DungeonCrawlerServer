@@ -17,16 +17,19 @@ namespace DungeonCrawler
         public Room? ExitSouth { get; set; }
         public Room? ExitWest { get; set; }
 
+        public List<BaseCharacter> Characters { get; }
         public Room()
         {
             Name = "default";
             Description = "default";
+            Characters = new List<BaseCharacter>();
         }
 
         public Room(string name, string description)
         {
             Name = name;
             Description = description;
+            Characters = new List<BaseCharacter>();
         }
 
         public void DisplayRoom(PlayerCharacter playerCharacter)
@@ -42,6 +45,13 @@ namespace DungeonCrawler
             playerCharacter.SendMessage(underLine);
             playerCharacter.SendMessage("");
             playerCharacter.SendMessage(Description);
+            playerCharacter.SendMessage("");
+
+            for (int i = 0; i < Characters.Count; i++)
+            {
+                string charStr = Characters[i].Name + " is here.";
+                playerCharacter.SendMessage(charStr);
+            }
             playerCharacter.SendMessage("");
             playerCharacter.SendMessage("Exits:");
 
