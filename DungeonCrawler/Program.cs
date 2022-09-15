@@ -81,8 +81,14 @@ internal class Program
 
         NonPlayerCharacter npc1 = new NonPlayerCharacter("Zombien Bob");
         npc1.HealthPoints = 25;
+        NonPlayerCharacter npc2 = new NonPlayerCharacter("Spöket Laban");
+        npc2.HealthPoints = 3;
+        NonPlayerCharacter npc3 = new NonPlayerCharacter("Trollet Göran");
+        npc3.HealthPoints = 1000;
 
         room5.Characters.Add(npc1);
+        room5.Characters.Add(npc2);
+        room7.Characters.Add(npc3);
 
         return room1;
     }
