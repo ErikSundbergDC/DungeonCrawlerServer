@@ -110,7 +110,21 @@ namespace DungeonCrawler
         private bool Fight(BaseCharacter enemy)
         {
             SendMessage("Fight started!");
-            return false;
+            Random random = new Random();
+            int randomNumber = random.Next(4);
+            bool playerDead = false;
+            if(randomNumber == 0)
+            {
+                playerDead = true;
+                SendMessage("You are dead!");
+                SendMessage("GAME OVER");
+            }
+            else
+            {
+                Position.Characters.Remove(enemy);
+                SendMessage(enemy.Name + " is dead!");
+            }
+            return playerDead;
         }
     }
 }
