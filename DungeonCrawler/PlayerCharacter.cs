@@ -36,7 +36,7 @@ namespace DungeonCrawler
             
             foreach(BaseCommand command in CommandList)
             {
-                if(command.GetType().Name.Substring(7).ToLower().StartsWith(commandString[0]))
+                if(command.Name.StartsWith(commandString[0]))
                 {
                     stop = command.Perform(this, commandString);
                 }
