@@ -20,6 +20,7 @@ namespace DungeonCrawler
             CommandList.Add(new CommandLook());
             CommandList.Add(new CommandQuit());
             CommandList.Add(new CommandAttack());
+            CommandList.Add(new CommandExit());
         }
 
         public void SendMessage(string message)
@@ -33,14 +34,18 @@ namespace DungeonCrawler
             bool stop = false;
             Console.Write("Do something: ");
             string[] commandString = Console.ReadLine().ToLower().Split(' ');
-            
-            foreach(BaseCommand command in CommandList)
+
+            int i = 0;
+            bool commandPerformed = false;
+            while(i < CommandList.Count && !commandPerformed)
             {
-                if(command.Name.StartsWith(commandString[0]))
+                BaseCommand command = CommandList[i];
+                if (command.Name.StartsWith(commandString[0]))
                 {
                     stop = command.Perform(this, commandString);
+                    commandPerformed = true;
                 }
-                
+                i++;
             }
 
             return stop;

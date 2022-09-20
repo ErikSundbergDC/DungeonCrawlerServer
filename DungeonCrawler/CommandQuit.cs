@@ -14,4 +14,9 @@ namespace DungeonCrawler
             return true;
         }
     }
+
+    public class CommandExit : CommandQuit
+    {
+
+    }
 }
