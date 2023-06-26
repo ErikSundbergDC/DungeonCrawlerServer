@@ -21,6 +21,7 @@ namespace DungeonCrawler
             CommandList.Add(new CommandQuit());
             CommandList.Add(new CommandAttack());
             CommandList.Add(new CommandExit());
+            CommandList.Add(new CommandCommands());
         }
 
         public void SendMessage(string message)
@@ -35,22 +36,35 @@ namespace DungeonCrawler
             Console.Write("Do something: ");
             string[] commandString = Console.ReadLine().ToLower().Split(' ');
 
-            int i = 0;
-            bool commandPerformed = false;
-            while(i < CommandList.Count && !commandPerformed)
+            try
             {
-                BaseCommand command = CommandList[i];
-                if (command.Name.StartsWith(commandString[0]))
-                {
-                    stop = command.Perform(this, commandString);
-                    commandPerformed = true;
-                }
-                i++;
+                BaseCommand command = FindCommand(commandString[0]);
+                stop = command.Perform(this, commandString);
+            }
+            catch(Exception e)
+            {
+                SendMessage(e.Message);
             }
 
+                       
             return stop;
         }
 
+        private BaseCommand FindCommand(string commandString)
+        {
+            if (commandString.Length > 0)
+            {
+                foreach (BaseCommand command in CommandList)
+                {
+                    if (command.Name.StartsWith(commandString))
+                    {
+                        return command;
+                    }
+                }
+            }
+            //No command found
+            throw new Exception("That is not a valid command!");
+        }
         public bool Fight(BaseCharacter enemy)
         {
             SendMessage("Fight started!");
