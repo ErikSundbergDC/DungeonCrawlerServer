@@ -18,6 +18,22 @@ namespace DungeonCrawler
         public Room? ExitWest { get; set; }
 
         public List<BaseCharacter> Characters { get; }
+        
+        public List<BaseCharacter> AggressiveCharacters 
+        {
+            get
+            {
+                List<BaseCharacter> aggressiveCharacters = new List<BaseCharacter>();
+                foreach(BaseCharacter character in Characters)
+                {
+                    if(character is AggressiveNonPlayerCharacter)
+                    {
+                        aggressiveCharacters.Add(character);
+                    }
+                }
+                return aggressiveCharacters;
+            }
+        }
         public Room()
         {
             Name = "default";

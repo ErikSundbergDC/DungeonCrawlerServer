@@ -9,6 +9,7 @@ internal class Program
         PlayerCharacter playerCharacter = new PlayerCharacter("Erik");
         playerCharacter.Position = startingRoom;
         playerCharacter.HealthPoints = 100;
+        playerCharacter.MaxHealthPoints = 200;
 
         playerCharacter.Position.DisplayRoom(playerCharacter);
 
@@ -79,12 +80,15 @@ internal class Program
         room17.ExitSouth = room15;
         room18.ExitSouth = room16;
 
-        NonPlayerCharacter npc1 = new NonPlayerCharacter("Zombien Bob");
+        AggressiveNonPlayerCharacter npc1 = new AggressiveNonPlayerCharacter("Zombien Bob");
         npc1.HealthPoints = 25;
-        NonPlayerCharacter npc2 = new NonPlayerCharacter("Spöket Laban");
+        npc1.MaxHealthPoints = 25;
+        AggressiveNonPlayerCharacter npc2 = new AggressiveNonPlayerCharacter("Spöket Laban");
         npc2.HealthPoints = 3;
-        NonPlayerCharacter npc3 = new NonPlayerCharacter("Trollet Göran");
-        npc3.HealthPoints = 1000;
+        npc1.MaxHealthPoints = 3;
+        AggressiveNonPlayerCharacter npc3 = new AggressiveNonPlayerCharacter("Trollet Göran");
+        npc3.HealthPoints = 10;
+        npc3.MaxHealthPoints = 10;
 
         room5.Characters.Add(npc1);
         room5.Characters.Add(npc2);

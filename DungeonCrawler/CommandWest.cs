@@ -10,16 +10,17 @@ namespace DungeonCrawler
     {
         public override bool Perform(PlayerCharacter playerCharacter, string[] commandString)
         {
+            bool playerDead = false;
             if (playerCharacter.Position.ExitWest != null)
             {
-                playerCharacter.Position = playerCharacter.Position.ExitWest;
-                playerCharacter.Position.DisplayRoom(playerCharacter);
+                playerCharacter.Position.ExitWest.DisplayRoom(playerCharacter);
+                playerDead = playerCharacter.Move(playerCharacter.Position.ExitWest);
             }
             else
             {
                 playerCharacter.SendMessage("You can't go that way!");
             }
-            return false;
+            return playerDead;
         }
     }
 }

@@ -29,41 +29,76 @@ namespace DungeonCrawler
             Console.WriteLine(message);
         }
 
+        private void PromptMessage(string message)
+        {
+            Console.Write(message);
+        }
 
+        // This method waits for user input. Maybe possible to do it asynchronous?
+        private string[] GetCommand()
+        {
+            string? command = Console.ReadLine();
+            if (command != null && command.Length > 0)
+            {
+                return command.ToLower().Split(' ');
+            }
+            else
+            {
+                throw new Exception("That is not a valid command!");
+            }
+        }
         public bool PerformCommand()
         {
             bool stop = false;
-            Console.Write("Do something: ");
-            string[] commandString = Console.ReadLine().ToLower().Split(' ');
+            PromptMessage("Do something: ");
 
             try
             {
+                string[] commandString = GetCommand();
                 BaseCommand command = FindCommand(commandString[0]);
                 stop = command.Perform(this, commandString);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 SendMessage(e.Message);
             }
 
-                       
             return stop;
         }
 
         private BaseCommand FindCommand(string commandString)
         {
-            if (commandString.Length > 0)
+            foreach (BaseCommand command in CommandList)
             {
-                foreach (BaseCommand command in CommandList)
+                if (command.Name.StartsWith(commandString))
                 {
-                    if (command.Name.StartsWith(commandString))
-                    {
-                        return command;
-                    }
+                    return command;
                 }
             }
             //No command found
             throw new Exception("That is not a valid command!");
+        }
+
+        public new bool Move(Room room)
+        {
+            base.Move(room);
+            
+            return FightAggressiveCharacters();
+        }
+
+        private bool FightAggressiveCharacters()
+        {
+            List<BaseCharacter> aggresives = Position.AggressiveCharacters;
+            //Loop through all aggressive characters in the room and fight them until they all are killed or the player dies.
+            foreach(BaseCharacter character in aggresives)
+            {
+                bool playerDead = Fight(character);
+                if (playerDead)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         public bool Fight(BaseCharacter enemy)
         {
@@ -71,7 +106,7 @@ namespace DungeonCrawler
             Random random = new Random();
             int randomNumber = random.Next(4);
             bool playerDead = false;
-            if(randomNumber == 0)
+            if (randomNumber == 0)
             {
                 playerDead = true;
                 SendMessage("You are dead!");
