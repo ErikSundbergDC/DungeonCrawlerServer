@@ -22,6 +22,7 @@ namespace DungeonCrawler
             CommandList.Add(new CommandAttack());
             CommandList.Add(new CommandExit());
             CommandList.Add(new CommandCommands());
+            CommandList.Add(new CommandHelp());
         }
 
         public void SendMessage(string message)
@@ -66,7 +67,7 @@ namespace DungeonCrawler
             return stop;
         }
 
-        private BaseCommand FindCommand(string commandString)
+        public BaseCommand FindCommand(string commandString)
         {
             foreach (BaseCommand command in CommandList)
             {

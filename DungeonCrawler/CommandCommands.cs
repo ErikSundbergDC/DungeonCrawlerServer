@@ -21,7 +21,7 @@ namespace DungeonCrawler
             playerCharacter.SendMessage("");
             foreach (BaseCommand command in playerCharacter.CommandList)
             {
-                playerCharacter.SendMessage(command.Name + ": " + command.HelpText);
+                playerCharacter.SendMessage(command.Name);
             }
             playerCharacter.SendMessage("");
             return false;
