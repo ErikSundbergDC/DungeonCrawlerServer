@@ -8,6 +8,13 @@ namespace DungeonCrawler
 {
     public class CommandQuit : BaseCommand
     {
+        public override string HelpText
+        {
+            get
+            {
+                return "Quit the game.";
+            }
+        }
         public override bool Perform(PlayerCharacter playerCharacter, string[] commandString)
         {
             playerCharacter.SendMessage("Hejdå!");

@@ -8,6 +8,13 @@ namespace DungeonCrawler
 {
     public class CommandWest : BaseCommand
     {
+        public override string HelpText
+        {
+            get
+            {
+                return "Move west.";
+            }
+        }
         public override bool Perform(PlayerCharacter playerCharacter, string[] commandString)
         {
             bool playerDead = false;
