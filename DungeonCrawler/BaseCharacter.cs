@@ -40,5 +40,18 @@ namespace DungeonCrawler
                 throw new Exception("Room does not contain item.");
             }
         }
+
+        public void DropItem(Item item)
+        {
+            if (Inventory.Contains(item))
+            {
+                Position.Items.Add(item);
+                Inventory.Remove(item);
+            }
+            else
+            {
+                throw new Exception("Inventory does not contain item.");
+            }
+        }
     }
 }

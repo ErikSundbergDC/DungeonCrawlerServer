@@ -89,9 +89,11 @@ namespace DungeonCrawler
 
             Item item1 = new Item("Whiteboard-Pennan", "En röd whiteboard-penna att skriva på tavlan med.", 1);
             Item item2 = new Item("Toapappersrullen", "En hel rulle med toapapper.", 2);
+            Item item3 = new Item("Whiteboard-Sudden", "En grå whiteboard-sudd att sudda på tavlan med.", 1);
 
             room8.Items.Add(item1);
             room5.Items.Add(item2);
+            room8.Items.Add(item3);
 
             StartingRoom = room1;
         }

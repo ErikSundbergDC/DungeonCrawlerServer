@@ -25,6 +25,7 @@ namespace DungeonCrawler
             CommandList.Add(new CommandHelp());
             CommandList.Add(new CommandInventory());
             CommandList.Add(new CommandGet());
+            CommandList.Add(new CommandDrop());
         }
 
         public void SendMessage(string message)

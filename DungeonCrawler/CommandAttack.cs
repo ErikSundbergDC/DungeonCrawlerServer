@@ -12,7 +12,7 @@ namespace DungeonCrawler
         {
             get
             {
-                return "Attack someone. Type: 'attack' 'name_of_character_to_attack'.";
+                return "Attack someone. Type: attack <character name>";
             }
         }
         public override bool Perform(PlayerCharacter playerCharacter, string[] commandString)

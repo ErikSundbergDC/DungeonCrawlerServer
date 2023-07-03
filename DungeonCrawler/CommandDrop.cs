@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DungeonCrawler
 {
-    public class CommandGet : BaseCommand
+    public class CommandDrop : BaseCommand
     {
         public override string HelpText
         {
             get
             {
-                return "Pick up an item that lies in the room. Type: get <item name>";
+                return "Drop an item in your inventory to the ground. Type: drop <item name>";
             }
         }
         public override bool Perform(PlayerCharacter playerCharacter, string[] commandString)
@@ -20,22 +20,22 @@ namespace DungeonCrawler
 
             if (commandString.Length > 1)
             {
-                for (int i = 0; i < playerCharacter.Position.Items.Count; i++)
+                for (int i = 0; i < playerCharacter.Inventory.Count; i++)
                 {
-                    Item item = playerCharacter.Position.Items[i];
+                    Item item = playerCharacter.Inventory[i];
                     if (item.Name.ToLower().StartsWith(commandString[1]))
                     {
-                        playerCharacter.GetItemFromRoom(item);
-                        playerCharacter.SendMessage("You pick up " + item.Name + ".");
+                        playerCharacter.DropItem(item);
+                        playerCharacter.SendMessage("You drop " + item.Name + ".");
                         return false;
                     }
                 }
 
-                playerCharacter.SendMessage("You don't see " + commandString[1] +  " here.");
+                playerCharacter.SendMessage("You don't have " + commandString[1] + " in your inventory.");
             }
             else
             {
-                playerCharacter.SendMessage("What do you want to get?");
+                playerCharacter.SendMessage("What do you want to drop?");
             }
             return false;
         }
