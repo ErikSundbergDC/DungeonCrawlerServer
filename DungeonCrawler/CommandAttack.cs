@@ -26,9 +26,11 @@ namespace DungeonCrawler
                     if (playerCharacter.Position.Characters[i].Name.ToLower().StartsWith(commandString[1]))
                     {
                         stop = playerCharacter.Fight(playerCharacter.Position.Characters[i]);
-
+                        return stop;
                     }
                 }
+
+                playerCharacter.SendMessage("You don't see " + commandString[1] + " here.");
 
             }
             else

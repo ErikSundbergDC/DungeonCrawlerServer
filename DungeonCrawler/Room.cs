@@ -18,7 +18,8 @@ namespace DungeonCrawler
         public Room? ExitWest { get; set; }
 
         public List<BaseCharacter> Characters { get; }
-        
+        public List<Item> Items { get; }
+
         public List<BaseCharacter> AggressiveCharacters 
         {
             get
@@ -39,6 +40,7 @@ namespace DungeonCrawler
             Name = "default";
             Description = "default";
             Characters = new List<BaseCharacter>();
+            Items = new List<Item>();
         }
 
         public Room(string name, string description)
@@ -46,6 +48,7 @@ namespace DungeonCrawler
             Name = name;
             Description = description;
             Characters = new List<BaseCharacter>();
+            Items = new List<Item>();
         }
 
         public void DisplayRoom(PlayerCharacter playerCharacter)
@@ -61,6 +64,13 @@ namespace DungeonCrawler
             playerCharacter.SendMessage(underLine);
             playerCharacter.SendMessage("");
             playerCharacter.SendMessage(Description);
+            playerCharacter.SendMessage("");
+
+            for (int i = 0; i < Items.Count; i++)
+            {
+                string itemStr = Items[i].Name + " lies here.";
+                playerCharacter.SendMessage(itemStr);
+            }
             playerCharacter.SendMessage("");
 
             for (int i = 0; i < Characters.Count; i++)

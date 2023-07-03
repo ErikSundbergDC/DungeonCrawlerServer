@@ -23,6 +23,8 @@ namespace DungeonCrawler
             CommandList.Add(new CommandExit());
             CommandList.Add(new CommandCommands());
             CommandList.Add(new CommandHelp());
+            CommandList.Add(new CommandInventory());
+            CommandList.Add(new CommandGet());
         }
 
         public void SendMessage(string message)
