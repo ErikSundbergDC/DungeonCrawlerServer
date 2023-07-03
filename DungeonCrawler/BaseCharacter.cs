@@ -13,6 +13,19 @@ namespace DungeonCrawler
         public string Name { get; set; }
 
         public List<Item> Inventory { get; }
+        public int InventoryWeight
+        {
+            get
+            {
+                int weight = 0;
+                foreach (Item item in Inventory)
+                {
+                    weight += item.Weight;
+                }
+                return weight;
+            }
+        }
+        public int MaxInventoryWeight { get; set; }
 
         public int HealthPoints { get; set; }
         public int MaxHealthPoints { get; set; }
