@@ -45,6 +45,10 @@ namespace DungeonCrawler
         {
             if(Position.Items.Contains(item))
             {
+                if(InventoryWeight + item.Weight > MaxInventoryWeight)
+                {
+                    throw new Exception("That is too heavy for you to carry.");
+                }
                 Inventory.Add(item);
                 Position.Items.Remove(item);
             }
