@@ -51,6 +51,7 @@ namespace DungeonCrawler
             Items = new List<Item>();
         }
 
+        //TODO: Dela upp DisplayRoom i mindre metoder.
         public void DisplayRoom(PlayerCharacter playerCharacter)
         {
             playerCharacter.SendMessage("");
