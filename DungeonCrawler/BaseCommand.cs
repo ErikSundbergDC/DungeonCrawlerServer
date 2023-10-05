@@ -16,7 +16,6 @@ namespace DungeonCrawler
 			}
 		}
 
-		public abstract string HelpText { get; }
 		public abstract bool Perform(PlayerCharacter playerCharacter, string[] commandString);
     }
 }

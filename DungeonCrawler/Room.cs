@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonCrawler
 {
-    public class Room
+    public class Room : GameObject
     {
         public string Name { get; private set; }
         public string Description { get; private set; }
@@ -18,37 +18,18 @@ namespace DungeonCrawler
         public Room? ExitWest { get; set; }
 
         public List<BaseCharacter> Characters { get; }
-        public List<Item> Items { get; }
 
-        public List<BaseCharacter> AggressiveCharacters 
-        {
-            get
-            {
-                List<BaseCharacter> aggressiveCharacters = new List<BaseCharacter>();
-                foreach(BaseCharacter character in Characters)
-                {
-                    if(character is AggressiveNonPlayerCharacter)
-                    {
-                        aggressiveCharacters.Add(character);
-                    }
-                }
-                return aggressiveCharacters;
-            }
-        }
-        public Room()
-        {
-            Name = "default";
-            Description = "default";
-            Characters = new List<BaseCharacter>();
-            Items = new List<Item>();
-        }
-
-        public Room(string name, string description)
+        public Room(string name, string description) : base()
         {
             Name = name;
             Description = description;
             Characters = new List<BaseCharacter>();
-            Items = new List<Item>();
+        }
+        public Room(int id, string name, string description) : base(id)
+        {
+            Name = name;
+            Description = description;
+            Characters = new List<BaseCharacter>();
         }
 
         //TODO: Dela upp DisplayRoom i mindre metoder.
@@ -67,18 +48,15 @@ namespace DungeonCrawler
             playerCharacter.SendMessage(Description);
             playerCharacter.SendMessage("");
 
-            for (int i = 0; i < Items.Count; i++)
+            foreach(BaseCharacter character in Characters)
             {
-                string itemStr = Items[i].Name + " lies here.";
-                playerCharacter.SendMessage(itemStr);
+                if (character != playerCharacter)
+                {
+                    string charStr = character.Name + " is here.";
+                    playerCharacter.SendMessage(charStr);
+                }
             }
-            playerCharacter.SendMessage("");
 
-            for (int i = 0; i < Characters.Count; i++)
-            {
-                string charStr = Characters[i].Name + " is here.";
-                playerCharacter.SendMessage(charStr);
-            }
             playerCharacter.SendMessage("");
             playerCharacter.SendMessage("Exits:");
 

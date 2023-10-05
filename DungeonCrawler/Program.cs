@@ -12,7 +12,6 @@ internal class Program
         playerCharacter.Position = startingRoom;
         playerCharacter.HealthPoints = 100;
         playerCharacter.MaxHealthPoints = 200;
-        playerCharacter.MaxInventoryWeight = 3;
 
         playerCharacter.Position.DisplayRoom(playerCharacter);
 

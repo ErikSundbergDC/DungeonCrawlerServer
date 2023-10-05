@@ -8,13 +8,7 @@ namespace DungeonCrawler
 {
     public class CommandAttack : BaseCommand
     {
-        public override string HelpText
-        {
-            get
-            {
-                return "Attack someone. Type: attack <character name>";
-            }
-        }
+        
         public override bool Perform(PlayerCharacter playerCharacter, string[] commandString)
         {
 

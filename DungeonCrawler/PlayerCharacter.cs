@@ -13,20 +13,16 @@ namespace DungeonCrawler
         public PlayerCharacter(string name) : base(name)
         {
             CommandList = new List<BaseCommand>();
-            CommandList.Add(new CommandNorth());
             CommandList.Add(new CommandEast());
-            CommandList.Add(new CommandSouth());
-            CommandList.Add(new CommandWest());
             CommandList.Add(new CommandLook());
-            CommandList.Add(new CommandQuit());
             CommandList.Add(new CommandAttack());
-            CommandList.Add(new CommandExit());
-            CommandList.Add(new CommandCommands());
-            CommandList.Add(new CommandHelp());
-            CommandList.Add(new CommandInventory());
-            CommandList.Add(new CommandGet());
-            CommandList.Add(new CommandDrop());
-            CommandList.Add(new CommandStatus());
+        }
+        public PlayerCharacter(int id, string name) : base(id, name)
+        {
+            CommandList = new List<BaseCommand>();
+            CommandList.Add(new CommandEast());
+            CommandList.Add(new CommandLook());
+            CommandList.Add(new CommandAttack());
         }
 
         public void SendMessage(string message)
@@ -87,24 +83,9 @@ namespace DungeonCrawler
         public new bool Move(Room room)
         {
             base.Move(room);
-            
-            return FightAggressiveCharacters();
-        }
-
-        private bool FightAggressiveCharacters()
-        {
-            List<BaseCharacter> aggresives = Position.AggressiveCharacters;
-            //Loop through all aggressive characters in the room and fight them until they all are killed or the player dies.
-            foreach(BaseCharacter character in aggresives)
-            {
-                bool playerDead = Fight(character);
-                if (playerDead)
-                {
-                    return true;
-                }
-            }
             return false;
         }
+
         public bool Fight(BaseCharacter enemy)
         {
             SendMessage("Fight started!");

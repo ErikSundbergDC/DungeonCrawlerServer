@@ -78,22 +78,14 @@ namespace DungeonCrawler
             npc1.MaxHealthPoints = 25;
             NonPlayerCharacter npc2 = new NonPlayerCharacter("Spöket Laban");
             npc2.HealthPoints = 3;
-            npc1.MaxHealthPoints = 3;
-            AggressiveNonPlayerCharacter npc3 = new AggressiveNonPlayerCharacter("Trollet Göran");
+            npc2.MaxHealthPoints = 3;
+            NonPlayerCharacter npc3 = new NonPlayerCharacter("Trollet Göran");
             npc3.HealthPoints = 10;
             npc3.MaxHealthPoints = 10;
 
-            room5.Characters.Add(npc1);
-            room5.Characters.Add(npc2);
-            room7.Characters.Add(npc3);
-
-            Item item1 = new Item("Whiteboard-Pennan", "En röd whiteboard-penna att skriva på tavlan med.", 1);
-            Item item2 = new Item("Toapappersrullen", "En hel rulle med toapapper.", 2);
-            Item item3 = new Item("Whiteboard-Sudden", "En grå whiteboard-sudd att sudda på tavlan med.", 1);
-
-            room8.Items.Add(item1);
-            room5.Items.Add(item2);
-            room8.Items.Add(item3);
+            npc1.Move(room1);
+            npc2.Move(room5);
+            npc3.Move(room7);
 
             StartingRoom = room1;
         }

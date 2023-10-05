@@ -11,5 +11,8 @@ namespace DungeonCrawler
         public NonPlayerCharacter(string name) : base(name)
         {
         }
+        public NonPlayerCharacter(int id, string name) : base(id, name)
+        {
+        }
     }
 }
