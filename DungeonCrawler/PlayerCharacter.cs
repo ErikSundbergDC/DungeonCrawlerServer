@@ -12,19 +12,20 @@ namespace DungeonCrawler
 
         public PlayerCharacter(string name) : base(name)
         {
-            CommandList = new List<BaseCommand>();
-            CommandList.Add(new CommandEast());
-            CommandList.Add(new CommandLook());
-            CommandList.Add(new CommandAttack());
+            LoadCommandList();
         }
         public PlayerCharacter(int id, string name) : base(id, name)
+        {
+            LoadCommandList();
+        }
+
+        private void LoadCommandList()
         {
             CommandList = new List<BaseCommand>();
             CommandList.Add(new CommandEast());
             CommandList.Add(new CommandLook());
             CommandList.Add(new CommandAttack());
         }
-
         public void SendMessage(string message)
         {
             Console.WriteLine(message);
