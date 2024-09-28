@@ -5,23 +5,23 @@ Jobba med en uppgift i taget. Innan du går vidare till nästa så testa noggran
 1.	Lägg till CommandWest, dvs ett kommando för att gå västerut.
 2.	Lägg till CommandNorth, dvs ett kommando för att gå norrut.
 3.	Lägg till CommandSouth, dvs ett kommando för att gå söderut.
-4.	Lägg till CommandQuit. Kommandot ska skriva ut ett avskedsmeddelande och sedan avslutas programmet genom att Perform()-metoden returnerar true.<br>
-   a.	Lägg till ett ”alias” för CommandQuit som gör så att samma kod anropas även om man skriver ”exit”. (Det finns ett mycket enkelt sätt att göra detta, men du får fundera lite på det själv.)
+4.	Lägg till CommandQuit. Kommandot ska skriva ut ett avskedsmeddelande och sedan avslutas programmet genom att Perform()-metoden returnerar true.<br><br>
+   a.	Lägg till ett ”alias” för CommandQuit som gör så att samma kod anropas även om man skriver ”exit”. (Det finns ett mycket enkelt sätt att göra detta, men du får fundera lite på det själv.)<br>
 6.	Lägg till CommandCommands som är ett kommando för att lista alla kommandon och skriva ut dem på skärmen. Använd dig av en foreach-loop för att gå igenom alla kommandon som finns i PlayerCharacterns lista.
-7.	Lägg till en hjälptext till varje kommando. Gör detta som en abstract property av typen string på klassen BaseCommand som du sedan implementerar så att den returnerar olika hjälptexter för de olika kommandona.<br>
-   a.	Lägg till CommandHelp som fungerar som CommandCommands fast det skriver även ut hjälptexten för alla kommandon.
+7.	Lägg till en hjälptext till varje kommando. Gör detta som en abstract property av typen string på klassen BaseCommand som du sedan implementerar så att den returnerar olika hjälptexter för de olika kommandona.<br><br>
+   a.	Lägg till CommandHelp som fungerar som CommandCommands fast det skriver även ut hjälptexten för alla kommandon.<br>
 9.	Lägg till CommandStatus som är ett kommando som visar spelarens HealthPoints. Även MaxHealthPoints ska visas. Det kan tex se ut så här:
 
     Health: 100/200
 
-10.	Lägg till en klass som heter ”Item” och representerar föremål i spelet. Klassen ska ärva från GameObject och ha egenskaperna (properties) Name, Description och Weight. Testa att klassen funkar genom att skapa objekt av den i metoden World.Create().<br>
-    a.	Se till att klassen Room har en lista för de Items som rummet innehåller. Listan ska se ut och fungera på samma sätt som listan för Characters.
-   	b.	Skapa ett ”Inventory” för alla BaseCharacter, dvs en lista över de föremål som spelaren/monstret bär på.
-   	c.	Lägg till kommandot CommandInventory som listar alla Items som finns i spelarens Inventory.
-   	d.	Lägg till kommandot CommandGet som används för att plocka upp föremål som finns i ett rum. Detta kommando ska alltså ta bort ett item från rummets lista samtidigt som det lägger till det i spelarens Inventory. Lägg själva koden för att åstadkomma detta i en metod som heter GetItemFromRoom() i klassen BaseCharacter så att även NonPlayerCharacters teoretiskt sett kan ta upp föremål. Anropa sedan GetItemFromRoom() från     CommandGet:s Perform()-metod. Titta på CommandAttack för lite hjälp med hur du ska göra för att hitta rätt Item i listan.
-   	e.	Lägg till kommandot CommandDrop som gör tvärtom mot CommandGet, dvs Items som finns i spelarens Inventory placeras i stället i det rum där man befinner sig.
-12.	Lägg till en egenskap ”MaxInventoryWeight” som är av typen int på BaseCharacter. Denna egenskap ska styra hur mycket vikt som kan finnas i spelarens/monstrets inventory. Man ska inte kunna plocka upp ett Item med CommandGet från ett rum om detta gör så att den sammanlagda vikten av spelarens inventory överstiger MaxInventoryWeight.
-    a.	Gör så att CommandStatus även visar den sammanlagda vikten för spelarens Inventory och MaxInventoryWeight, tex så här:
+10.	Lägg till en klass som heter ”Item” och representerar föremål i spelet. Klassen ska ärva från GameObject och ha egenskaperna (properties) Name, Description och Weight. Testa att klassen funkar genom att skapa objekt av den i metoden World.Create().<br><br>
+    a.	Se till att klassen Room har en lista för de Items som rummet innehåller. Listan ska se ut och fungera på samma sätt som listan för Characters.<br>
+    b.	Skapa ett ”Inventory” för alla BaseCharacter, dvs en lista över de föremål som spelaren/monstret bär på.<br>
+    c.	Lägg till kommandot CommandInventory som listar alla Items som finns i spelarens Inventory.<br>
+    d.	Lägg till kommandot CommandGet som används för att plocka upp föremål som finns i ett rum. Detta kommando ska alltså ta bort ett item från rummets lista samtidigt som det lägger till det i spelarens Inventory. Lägg själva koden för att åstadkomma detta i en metod som heter GetItemFromRoom() i klassen BaseCharacter så att även NonPlayerCharacters teoretiskt sett kan ta upp föremål. Anropa sedan GetItemFromRoom() från     CommandGet:s Perform()-metod. Titta på CommandAttack för lite hjälp med hur du ska göra för att hitta rätt Item i listan.<br>
+    e.	Lägg till kommandot CommandDrop som gör tvärtom mot CommandGet, dvs Items som finns i spelarens Inventory placeras i stället i det rum där man befinner sig.<br>
+12.	Lägg till en egenskap ”MaxInventoryWeight” som är av typen int på BaseCharacter. Denna egenskap ska styra hur mycket vikt som kan finnas i spelarens/monstrets inventory. Man ska inte kunna plocka upp ett Item med CommandGet från ett rum om detta gör så att den sammanlagda vikten av spelarens inventory överstiger MaxInventoryWeight.<br>
+   a.	Gör så att CommandStatus även visar den sammanlagda vikten för spelarens Inventory och MaxInventoryWeight, tex så här:
       Inventory: 32/50
   	
 14.	Lägg till en klass som heter Food. Denna klass ska ärva från Item och ha en ytterligare egenskap (property) som är av typen int och heter HpRegeneration. Testa att klassen funkar genom att skapa objekt av den i metoden CreateWorld och lägg till dessa i något rum.
