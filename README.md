@@ -5,16 +5,16 @@ Jobba med en uppgift i taget. Innan du går vidare till nästa så testa noggran
 1.	Lägg till CommandWest, dvs ett kommando för att gå västerut.
 2.	Lägg till CommandNorth, dvs ett kommando för att gå norrut.
 3.	Lägg till CommandSouth, dvs ett kommando för att gå söderut.
-4.	Lägg till CommandQuit. Kommandot ska skriva ut ett avskedsmeddelande och sedan avslutas programmet genom att Perform()-metoden returnerar true.
+4.	Lägg till CommandQuit. Kommandot ska skriva ut ett avskedsmeddelande och sedan avslutas programmet genom att Perform()-metoden returnerar true.<br>
    a.	Lägg till ett ”alias” för CommandQuit som gör så att samma kod anropas även om man skriver ”exit”. (Det finns ett mycket enkelt sätt att göra detta, men du får fundera lite på det själv.)
 6.	Lägg till CommandCommands som är ett kommando för att lista alla kommandon och skriva ut dem på skärmen. Använd dig av en foreach-loop för att gå igenom alla kommandon som finns i PlayerCharacterns lista.
-7.	Lägg till en hjälptext till varje kommando. Gör detta som en abstract property av typen string på klassen BaseCommand som du sedan implementerar så att den returnerar olika hjälptexter för de olika kommandona.
+7.	Lägg till en hjälptext till varje kommando. Gör detta som en abstract property av typen string på klassen BaseCommand som du sedan implementerar så att den returnerar olika hjälptexter för de olika kommandona.<br>
    a.	Lägg till CommandHelp som fungerar som CommandCommands fast det skriver även ut hjälptexten för alla kommandon.
 9.	Lägg till CommandStatus som är ett kommando som visar spelarens HealthPoints. Även MaxHealthPoints ska visas. Det kan tex se ut så här:
 
     Health: 100/200
 
-10.	Lägg till en klass som heter ”Item” och representerar föremål i spelet. Klassen ska ärva från GameObject och ha egenskaperna (properties) Name, Description och Weight. Testa att klassen funkar genom att skapa objekt av den i metoden World.Create().
+10.	Lägg till en klass som heter ”Item” och representerar föremål i spelet. Klassen ska ärva från GameObject och ha egenskaperna (properties) Name, Description och Weight. Testa att klassen funkar genom att skapa objekt av den i metoden World.Create().<br>
     a.	Se till att klassen Room har en lista för de Items som rummet innehåller. Listan ska se ut och fungera på samma sätt som listan för Characters.
    	b.	Skapa ett ”Inventory” för alla BaseCharacter, dvs en lista över de föremål som spelaren/monstret bär på.
    	c.	Lägg till kommandot CommandInventory som listar alla Items som finns i spelarens Inventory.
