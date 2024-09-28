@@ -1,4 +1,4 @@
-DungeonCrawler, uppgifter att jobba med.
+**DungeonCrawler, uppgifter att jobba med.**
 
 Jobba med en uppgift i taget. Innan du går vidare till nästa så testa noggrant att allt fungerar som det ska. Gör sedan ”Commit All and Sync” mot Github. Skriv uppgiftens nummer i ”message”-fönstret och även om du löst den helt, delvis eller bara börjat jobba med den. Vissa uppgifter bygger på att tidigare steg är genomförda. Fler uppgifter kan tillkomma senare.
 1.	Lägg till CommandWest, dvs ett kommando för att gå västerut.
