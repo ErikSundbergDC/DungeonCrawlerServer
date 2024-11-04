@@ -10,6 +10,7 @@ internal class Program
 
         PlayerCharacter playerCharacter = new PlayerCharacter("Erik");
         playerCharacter.Position = startingRoom;
+        startingRoom.Characters.Add(playerCharacter); // Add character to room to make it visible in the room too
         playerCharacter.HealthPoints = 100;
         playerCharacter.MaxHealthPoints = 200;
 
