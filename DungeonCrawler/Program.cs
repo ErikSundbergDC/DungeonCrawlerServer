@@ -20,8 +20,6 @@ internal class Program
         while (!stop)
         {
             stop = playerCharacter.PerformCommand();
-        }
-        
+        }   
     }
-
 }
