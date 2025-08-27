@@ -1,4 +1,4 @@
-﻿using DungeonCrawler;
+﻿using DungeonCrawlerServer;
 
 internal class Program
 {
