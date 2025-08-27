@@ -10,68 +10,71 @@ namespace DungeonCrawlerServer
     public class World
     {
         public Room StartingRoom { get; private set; }
+        public List<Room> rooms { get; }
         public World()
         {
+            rooms = new List<Room>();
             Create();
         }
 
         private void Create()
         {
-            Room room1 = new Room("Tamburen", "Det här är rummet direkt innanför ytterdörren. Det står en del möbler och skohyllor här. I den öppna spisen har någon slängt en elscooter.");
-            Room room2 = new Room("Korridoren", "En ganska vanlig skolkorridor.");
-            Room room3 = new Room("Korridoren utanför toaletterna", "En ganska vanlig skolkorridor.");
-            Room room4 = new Room("Korridoren utanför toaletterna", "En ganska vanlig skolkorridor.");
-            Room room5 = new Room("En toalett", "En vanlig offentlig toalett. Det är ganska trångt här inne.");
-            Room room6 = new Room("En toalett", "En vanlig offentlig toalett. Det är ganska trångt här inne.");
-            Room room7 = new Room("En handikapptoalett", "En vanlig offentlig toalett som är anpassad för funktionsvariationer. Det är gott om plats här inne.");
-            Room room8 = new Room("Hjärnkontoret höger", "Det här är normalt sett den främre delen av klassrummet. Fast ibland är det den bakre delen.");
-            Room room9 = new Room("Hjärnkontoret vänster", "Det här är normalt sett den bakre delen av klassrummet. Fast ibland är det den främre delen.");
-            Room room10 = new Room("Korridoren", "En ganska vanlig skolkorridor. Det finns elevskåp här.");
-            Room room11 = new Room("Korridoren", "En ganska vanlig skolkorridor. Det finns elevskåp här.");
-            Room room12 = new Room("Korridoren", "En ganska vanlig skolkorridor. Det finns elevskåp här.");
-            Room room13 = new Room("Ett grupprum", "Här kan elever stänga in sig för att utföra viktigt skolarbete i lugn och ro.");
-            Room room14 = new Room("Ett grupprum", "Här kan elever stänga in sig för att utföra viktigt skolarbete i lugn och ro.");
-            Room room15 = new Room("Ett arbetsrum", "Här sitter lärarna och softar i lugn och ro.");
-            Room room16 = new Room("Inre delen av arbetsrummet", "Här sitter lärarna och softar i lugn och ro.");
-            Room room17 = new Room("Ett förråd", "Här förvaras datorprylar.");
-            Room room18 = new Room("Ett förråd", "Här förvaras reklammaterial och andra grejer.");
+            rooms.Add(new Room("Trappuppgången", "En kall trappuppgång med en spiraltrappa som leder både upp och ner."));
+            rooms.Add(new Room("Tamburen", "Det här är rummet direkt innanför ytterdörren. Det står en del möbler och skohyllor här. I den öppna spisen har någon slängt en elscooter."));
+            rooms.Add(new Room("Korridoren", "En ganska vanlig skolkorridor."));
+            rooms.Add(new Room("Korridoren utanför toaletterna", "En ganska vanlig skolkorridor."));
+            rooms.Add(new Room("Korridoren utanför toaletterna", "En ganska vanlig skolkorridor."));
+            rooms.Add(new Room("En toalett", "En vanlig offentlig toalett. Det är ganska trångt här inne."));
+            rooms.Add(new Room("En toalett", "En vanlig offentlig toalett. Det är ganska trångt här inne."));
+            rooms.Add(new Room("En handikapptoalett", "En vanlig offentlig toalett som är anpassad för funktionsvariationer. Det är gott om plats här inne."));
+            rooms.Add(new Room("Hjärnkontoret höger", "Det här är normalt sett den främre delen av klassrummet. Fast ibland är det den bakre delen."));
+            rooms.Add(new Room("Hjärnkontoret vänster", "Det här är normalt sett den bakre delen av klassrummet. Fast ibland är det den främre delen."));
+            rooms.Add(new Room("Korridoren", "En ganska vanlig skolkorridor. Det finns elevskåp här."));
+            rooms.Add(new Room("Korridoren", "En ganska vanlig skolkorridor. Det finns elevskåp här."));
+            rooms.Add(new Room("Korridoren", "En ganska vanlig skolkorridor. Det finns elevskåp här."));
+            rooms.Add(new Room("Ett grupprum", "Här kan elever stänga in sig för att utföra viktigt skolarbete i lugn och ro."));
+            rooms.Add(new Room("Ett grupprum", "Här kan elever stänga in sig för att utföra viktigt skolarbete i lugn och ro."));
+            rooms.Add(new Room("Ett arbetsrum", "Här sitter lärarna och softar i lugn och ro."));
+            rooms.Add(new Room("Inre delen av arbetsrummet", "Här sitter lärarna och softar i lugn och ro."));
+            rooms.Add(new Room("Ett förråd", "Här förvaras datorprylar."));
+            rooms.Add(new Room("Ett förråd", "Här förvaras reklammaterial och andra grejer."));
 
-            room1.ExitEast = room2;
-            room2.ExitWest = room1;
-            room2.ExitEast = room8;
-            room2.ExitSouth = room3;
-            room2.ExitNorth = room10;
-            room3.ExitNorth = room2;
-            room3.ExitEast = room5;
-            room3.ExitSouth = room4;
-            room4.ExitNorth = room3;
-            room4.ExitEast = room6;
-            room4.ExitWest = room7;
-            room5.ExitWest = room3;
-            room6.ExitWest = room4;
-            room7.ExitEast = room4;
-            room8.ExitNorth = room9;
-            room8.ExitWest = room2;
-            room9.ExitWest = room12;
-            room9.ExitSouth = room8;
-            room10.ExitNorth = room11;
-            room10.ExitSouth = room2;
-            room10.ExitWest = room13;
-            room11.ExitNorth = room12;
-            room11.ExitSouth = room10;
-            room11.ExitWest = room14;
-            room12.ExitEast = room9;
-            room12.ExitSouth = room11;
-            room12.ExitWest = room15;
-            room13.ExitEast = room10;
-            room14.ExitEast = room11;
-            room15.ExitNorth = room17;
-            room15.ExitEast = room12;
-            room15.ExitWest = room16;
-            room16.ExitNorth = room18;
-            room16.ExitEast = room15;
-            room17.ExitSouth = room15;
-            room18.ExitSouth = room16;
+            rooms[1].ExitEast = rooms[2];
+            rooms[2].ExitWest = rooms[1];
+            rooms[2].ExitEast = rooms[8];
+            rooms[2].ExitSouth = rooms[3];
+            rooms[2].ExitNorth = rooms[10];
+            rooms[3].ExitNorth = rooms[2];
+            rooms[3].ExitEast = rooms[5];
+            rooms[3].ExitSouth = rooms[4];
+            rooms[4].ExitNorth = rooms[3];
+            rooms[4].ExitEast = rooms[6];
+            rooms[4].ExitWest = rooms[7];
+            rooms[5].ExitWest = rooms[3];
+            rooms[6].ExitWest = rooms[4];
+            rooms[7].ExitEast = rooms[4];
+            rooms[8].ExitNorth = rooms[9];
+            rooms[8].ExitWest = rooms[2];
+            rooms[9].ExitWest = rooms[12];
+            rooms[9].ExitSouth = rooms[8];
+            rooms[10].ExitNorth = rooms[11];
+            rooms[10].ExitSouth = rooms[2];
+            rooms[10].ExitWest = rooms[13];
+            rooms[11].ExitNorth = rooms[12];
+            rooms[11].ExitSouth = rooms[10];
+            rooms[11].ExitWest = rooms[14];
+            rooms[12].ExitEast = rooms[9];
+            rooms[12].ExitSouth = rooms[11];
+            rooms[12].ExitWest = rooms[15];
+            rooms[13].ExitEast = rooms[10];
+            rooms[14].ExitEast = rooms[11];
+            rooms[15].ExitNorth = rooms[17];
+            rooms[15].ExitEast = rooms[12];
+            rooms[15].ExitWest = rooms[16];
+            rooms[16].ExitNorth = rooms[18];
+            rooms[16].ExitEast = rooms[15];
+            rooms[17].ExitSouth = rooms[15];
+            rooms[18].ExitSouth = rooms[16];
 
             NonPlayerCharacter npc1 = new NonPlayerCharacter("Zombien Bob");
             npc1.HealthPoints = 25;
@@ -83,11 +86,12 @@ namespace DungeonCrawlerServer
             npc3.HealthPoints = 10;
             npc3.MaxHealthPoints = 10;
 
-            npc1.Move(room1);
-            npc2.Move(room5);
-            npc3.Move(room7);
+            npc1.Move(rooms[1]);
+            npc2.Move(rooms[5]);
+            npc3.Move(rooms[7]);
+            
 
-            StartingRoom = room1;
+            StartingRoom = rooms[1];
         }
     }
 }
