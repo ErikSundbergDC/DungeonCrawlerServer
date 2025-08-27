@@ -20,6 +20,8 @@ internal class Program
         while (!stop)
         {
             stop = playerCharacter.PerformCommand();
-        }   
+        }
+
+        playerCharacter.Position.Characters.Remove(playerCharacter);
     }
 }
