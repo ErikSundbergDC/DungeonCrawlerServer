@@ -27,7 +27,7 @@ namespace DungeonCrawlerServer
             CommandList.Add(new CommandAttack());
 
         }
-        public void SendMessage(string message)
+        public override void SendMessage(string message)
         {
             Console.WriteLine(message);
         }
@@ -88,26 +88,5 @@ namespace DungeonCrawlerServer
             return false;
         }
 
-        public bool Fight(BaseCharacter enemy)
-        {
-            SendMessage("Fight started!");
-            Random random = new Random();
-            int randomNumber = random.Next(4);
-            bool playerDead = false;
-            if (randomNumber == 0)
-            {
-                SendMessage(enemy.Name + " hits you very hard!");
-                playerDead = true;
-                SendMessage("You are dead!");
-                SendMessage("GAME OVER");
-            }
-            else
-            {
-                SendMessage("You hit " + enemy.Name + " very hard!");
-                Position.Characters.Remove(enemy);
-                SendMessage(enemy.Name + " is dead!");
-            }
-            return playerDead;
-        }
     }
 }
