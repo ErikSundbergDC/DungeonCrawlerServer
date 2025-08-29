@@ -96,12 +96,14 @@ namespace DungeonCrawlerServer
             bool playerDead = false;
             if (randomNumber == 0)
             {
+                SendMessage(enemy.Name + " hits you very hard!");
                 playerDead = true;
                 SendMessage("You are dead!");
                 SendMessage("GAME OVER");
             }
             else
             {
+                SendMessage("You hit " + enemy.Name + " very hard!");
                 Position.Characters.Remove(enemy);
                 SendMessage(enemy.Name + " is dead!");
             }
