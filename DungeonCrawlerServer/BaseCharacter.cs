@@ -17,6 +17,7 @@ namespace DungeonCrawlerServer
             }
             set
             {
+                //Propertyn ser själv till att charactern läggs till i rummet där den befinner sig.
                 if (position != null)
                 {
                     position.Characters.Remove(this);
