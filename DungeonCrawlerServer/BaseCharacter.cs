@@ -8,8 +8,23 @@ namespace DungeonCrawlerServer
 {
     public abstract class BaseCharacter : GameObject
     {
-        public Room? Position { get; set; }
-
+        private Room? position;
+        public Room? Position
+        {
+            get
+            {
+                return position;
+            }
+            set
+            {
+                if (position != null)
+                {
+                    position.Characters.Remove(this);
+                }
+                position = value;
+                position.Characters.Add(this);
+            }
+        }
         public string Name { get; set; }
 
 
@@ -30,15 +45,7 @@ namespace DungeonCrawlerServer
             //Default is do nothing when a character gets a message.
         }
 
-        public void Move(Room room)
-        {
-            if(Position != null)
-            {
-                Position.Characters.Remove(this);
-            }
-            Position = room;
-            Position.Characters.Add(this);
-        }
+     
 
         public bool Fight(BaseCharacter enemy)
         {

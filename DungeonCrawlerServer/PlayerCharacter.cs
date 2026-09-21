@@ -84,7 +84,7 @@ namespace DungeonCrawlerServer
 
         public new bool Move(Room room)
         {
-            base.Move(room);
+            Position = room;
             return false;
         }
 

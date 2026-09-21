@@ -86,9 +86,9 @@ namespace DungeonCrawlerServer
             npc3.HealthPoints = 10;
             npc3.MaxHealthPoints = 10;
 
-            npc1.Move(rooms[1]);
-            npc2.Move(rooms[5]);
-            npc3.Move(rooms[7]);
+            npc1.Position = rooms[1];
+            npc2.Position = rooms[5];
+            npc3.Position = rooms[7];
             
 
             StartingRoom = rooms[1];
