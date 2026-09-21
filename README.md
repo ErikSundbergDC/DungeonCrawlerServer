@@ -1,6 +1,8 @@
 **DungeonCrawler, uppgifter att jobba med.**
 
-Jobba med en uppgift i taget. Innan du går vidare till nästa så testa noggrant att allt fungerar som det ska. Gör sedan ”Commit All and Sync” mot Github. Skriv uppgiftens nummer i ”message”-fönstret och även om du löst den helt, delvis eller bara börjat jobba med den. Vissa uppgifter bygger på att tidigare steg är genomförda. Fler uppgifter kan tillkomma senare.
+Jobba med en uppgift i taget. Innan du går vidare till nästa så testa noggrant att allt fungerar som det ska. Gör sedan ”Commit All and Sync” mot Github. Skriv uppgiftens nummer i ”message”-fönstret och även om du löst den helt, delvis eller bara börjat jobba med den. Vissa uppgifter bygger på att tidigare steg är genomförda. 
+
+Börja inte jobba med något om du inte förstår exakt vad som ska göras! Detta gäller särskilt uppgifterna på slutet, vi kommer att gå igenom hur allt ska genomföras så småningom. 
 
 1.	Lägg till CommandWest, dvs ett kommando för att gå västerut.
 2.	Lägg till CommandNorth, dvs ett kommando för att gå norrut.
@@ -36,3 +38,8 @@ Jobba med en uppgift i taget. Innan du går vidare till nästa så testa noggran
     a.	Lägg även till låsbara dörrar som kan låsas upp när man har ett särskilt Item (nyckel) i sitt Inventory. Kommandona som ska finnas är CommandUnlock för att låsa upp en dörr och CommandLock för att låsa en dörr.<br>
 23.	Lägg till en klass som heter MagicalItem. Denna klass ska ärva från Item och ge bäraren extra egenskaper, tex mer hp eller på andra sätt större chanser att lyckas i en strid. Du behöver säkert lägga till kod på flera olika ställen för att få det att fungera som du vill.
 24.	Gör så att spelet får ett slut! Kanske i form av en slutboss (extra svår fiende) som man behöver besegra för att vinna?
+25.	Gör klassdiagram i Visual Studio för att dokumentera ditt projekt.
+26.	Gör om din DungeonCrawler till ett Server-Client-system där man kan ansluta till spelet över internet (åtminstone i teorin).
+27.	Gör Server-Client-systemet mer avancerat med till exempel ett inloggningssystem och mer kontrollerad avslutning av programmet.
+28.	Bygg på ännu mer på Server-Client-systemet så att det blir ett fungerande fleranvändarsystem där man kan spela med eller mot varandra.
+29.	Gör så att data om din PlayerCharacter och/eller hela världen sparas på fil mellan spelomgångarna.
